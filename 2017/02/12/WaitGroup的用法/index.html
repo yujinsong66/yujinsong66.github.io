@@ -4,18 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>余进松的个人博客</title>
+  <title>WaitGroup的用法 | 余进松的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="title：WaitGroup的用法 date：2017-02-12 15:45:00 tags：  Golang&#x20; WaitGroup  categories：  Golang  keywords：  WaitGroup waitgroup   WaitGroup的用法WaitGroup的作用是等待一批goroutings结束，主goroutine调用Add设置需要等待的gorout">
+  <meta name="description" content="WaitGroup的用法WaitGroup的作用是等待一批goroutings结束，主goroutine调用Add设置需要等待的goroutine数量，每个goroutine结束时调用Done方法，主goroutine阻塞直到所有的goroutine结束 WaitGroup的代码常见有两种模版第一种是不需要goroutines的返回结果 func waitGroupTest() &#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="余进松的个人博客">
-<meta property="og:url" content="http://example.com/2025/02/12/WaitGroup%E7%9A%84%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:title" content="WaitGroup的用法">
+<meta property="og:url" content="http://example.com/2017/02/12/WaitGroup%E7%9A%84%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="余进松的个人博客">
-<meta property="og:description" content="title：WaitGroup的用法 date：2017-02-12 15:45:00 tags：  Golang&#x20; WaitGroup  categories：  Golang  keywords：  WaitGroup waitgroup   WaitGroup的用法WaitGroup的作用是等待一批goroutings结束，主goroutine调用Add设置需要等待的gorout">
+<meta property="og:description" content="WaitGroup的用法WaitGroup的作用是等待一批goroutings结束，主goroutine调用Add设置需要等待的goroutine数量，每个goroutine结束时调用Done方法，主goroutine阻塞直到所有的goroutine结束 WaitGroup的代码常见有两种模版第一种是不需要goroutines的返回结果 func waitGroupTest() &#123;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-02-12T07:55:37.210Z">
-<meta property="article:modified_time" content="2025-02-12T07:55:37.211Z">
+<meta property="article:published_time" content="2017-02-12T07:45:00.000Z">
+<meta property="article:modified_time" content="2025-02-12T07:59:11.420Z">
 <meta property="article:author" content="余进松">
+<meta property="article:tag" content="Golang&#x20;">
+<meta property="article:tag" content="WaitGroup">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="余进松的个人博客" type="application/atom+xml">
@@ -77,35 +79,31 @@
       <div class="outer">
         <section id="main"><article id="post-WaitGroup的用法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/02/12/WaitGroup%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-date">
-  <time class="dt-published" datetime="2025-02-12T07:55:37.210Z" itemprop="datePublished">2025-02-12</time>
+    <a href="/2017/02/12/WaitGroup%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2017-02-12T07:45:00.000Z" itemprop="datePublished">2017-02-12</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Golang/">Golang</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      WaitGroup的用法
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title：WaitGroup的用法</p>
-<p>date：2017-02-12 15:45:00</p>
-<p>tags：</p>
-<ul>
-<li>Golang&#x20;</li>
-<li>WaitGroup</li>
-</ul>
-<p>categories：</p>
-<ul>
-<li>Golang</li>
-</ul>
-<p>keywords：</p>
-<ul>
-<li>WaitGroup</li>
-<li>waitgroup</li>
-</ul>
-<hr>
-<h2 id="WaitGroup的用法"><a href="#WaitGroup的用法" class="headerlink" title="WaitGroup的用法"></a>WaitGroup的用法</h2><p>WaitGroup的作用是等待一批goroutings结束，主goroutine调用Add设置需要等待的goroutine数量，每个goroutine结束时调用Done方法，主goroutine阻塞直到所有的goroutine结束</p>
+        <h2 id="WaitGroup的用法"><a href="#WaitGroup的用法" class="headerlink" title="WaitGroup的用法"></a>WaitGroup的用法</h2><p>WaitGroup的作用是等待一批goroutings结束，主goroutine调用Add设置需要等待的goroutine数量，每个goroutine结束时调用Done方法，主goroutine阻塞直到所有的goroutine结束</p>
 <h3 id="WaitGroup的代码常见有两种模版"><a href="#WaitGroup的代码常见有两种模版" class="headerlink" title="WaitGroup的代码常见有两种模版"></a>WaitGroup的代码常见有两种模版</h3><p>第一种是不需要goroutines的返回结果</p>
 <pre><code>func waitGroupTest() &#123;
     var wg sync.WaitGroup
@@ -134,21 +132,27 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/02/12/WaitGroup%E7%9A%84%E7%94%A8%E6%B3%95/" data-id="cm71m9puj00004s9vawmy3f9f" data-title="" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2017/02/12/WaitGroup%E7%9A%84%E7%94%A8%E6%B3%95/" data-id="cm71m9puj00004s9vawmy3f9f" data-title="WaitGroup的用法" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Golang-x20/" rel="tag">Golang&#x20;</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WaitGroup/" rel="tag">WaitGroup</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-  
-    <a href="/2025/02/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2025/02/12/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -161,18 +165,39 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang-x20/" rel="tag">Golang&#x20;</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WaitGroup/" rel="tag">WaitGroup</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Golang-x20/" style="font-size: 10px;">Golang&#x20;</a> <a href="/tags/WaitGroup/" style="font-size: 10px;">WaitGroup</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li></ul>
     </div>
   </div>
 
@@ -185,11 +210,11 @@
       <ul>
         
           <li>
-            <a href="/2025/02/12/WaitGroup%E7%9A%84%E7%94%A8%E6%B3%95/">(no title)</a>
+            <a href="/2025/02/12/hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2025/02/12/hello-world/">Hello World</a>
+            <a href="/2017/02/12/WaitGroup%E7%9A%84%E7%94%A8%E6%B3%95/">WaitGroup的用法</a>
           </li>
         
       </ul>
