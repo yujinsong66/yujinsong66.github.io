@@ -96,12 +96,7 @@
 <ul>
 <li>Golang</li>
 </ul>
-<p>keywords：</p>
-<ul>
-<li>Once</li>
-</ul>
-<hr>
-<h2 id="Golang-Once的用法"><a href="#Golang-Once的用法" class="headerlink" title="Golang Once的用法"></a>Golang Once的用法</h2><p>Once的作用是让代码只执行一次，相当于Java的单列模式</p>
+<h2 id="keywords：-Once"><a href="#keywords：-Once" class="headerlink" title="keywords：- Once"></a>keywords：<br>- Once</h2><h2 id="Golang-Once的用法"><a href="#Golang-Once的用法" class="headerlink" title="Golang Once的用法"></a>Golang Once的用法</h2><p>Once的作用是让代码只执行一次，相当于Java的单列模式</p>
 <h3 id="Once的用法"><a href="#Once的用法" class="headerlink" title="Once的用法"></a>Once的用法</h3><p>Once只有一个Do方法，参数是一个方法，这个方法只执行一次，用法非常简单</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">type Service struct &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var once sync.Once</span><br><span class="line">var service *Service</span><br><span class="line"></span><br><span class="line">func NewService() *Service &#123;</span><br><span class="line">    once.Do(func() &#123;</span><br><span class="line">       service = &amp;Service&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return service</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
